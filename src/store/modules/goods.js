@@ -1,13 +1,14 @@
 import shop from '../../api/shop'
 
-const state ={
-    list:[]
+const state = {
+    list: []
 }
 
 const getters = {}
-    const actions ={
-        getList({commit}){
-            shop.getGoodsList(data => {
+
+const actions = {
+        getList ({commit}) {
+          shop.getGoodsList(data => {
                 commit ('setList',data)
             })
         }
@@ -19,7 +20,7 @@ const getters = {}
     }
 
     export default {
-        namespaced:true,
+        namespaced: true,
         state,
         getters,
         actions,

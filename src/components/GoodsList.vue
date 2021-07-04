@@ -8,7 +8,7 @@
           <div class="item-title">{{goods.title}}</div>
           <div class="item-price">{{goods.price | currency}}</div>
           <div calss="item-opt">
-             <button @click="add(goods)">加入购物车</button>
+             <button @click="add (goods)">加入购物车</button>
           </div>
         </div>
     </div>
@@ -16,18 +16,18 @@
 </template>
 
 <script>
-import {mapState, mapActions} from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
     computed: mapState({
-        goodslist:state => state.goods.list
+        goodslist: state => state.goods.list
     }),
     methods: mapActions('shopcart',['add']),
     created () {
         this.$store.dispatch('goods/getList')
     },
-    filters:{
-        currency (value){
-            return '￥' + 'value'
+    filters:  {
+        currency (value) {
+            return '￥ ' + value
         }
     }
 }

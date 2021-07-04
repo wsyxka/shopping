@@ -25,16 +25,16 @@
 import { mapGetters, mapState, mapActions } from 'vuex'
 
 export default {
-    computed:{
+    computed: {
         ...mapState({
-            items: state => state.shopcart.items
+          items: state => state.shopcart.items
         }),
-        ...mapGetters('shopcart',{total:'totalPrice'})
+        ...mapGetters('shopcart', { total: 'totalPrice' })
     },
-    methods:mapActions('shopcart',['del']),
+    methods: mapActions('shopcart',['del']),
     filters:{
-        currency (value){
-            return '￥' + value
+        currency (value) {
+            return '￥ ' + value
         }
     }
 }

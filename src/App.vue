@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="content">
-    <router-view/>
+    <router-view />
     </div> 
     <div class="bottom">
       <router-link to="/" tag="div">商品列表</router-link>

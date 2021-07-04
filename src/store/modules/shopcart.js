@@ -1,21 +1,13 @@
 const state = {
-    item:[]
-}
-
-export default {
-    namespaced:true,
-    state,
-    getters,
-    actions,
-    mutations
+    items: []
 }
 
 const actions = {
     add (context,item) {
-        context.commit('add',item)
+        context.commit('add', item)
     },
-    del (context,id) {
-        context.commit('del',id)
+    del (context, id) {
+        context.commit('del', id)
     }
 }
 const mutations = {
@@ -25,27 +17,35 @@ const mutations = {
             ++v.num
         } else {
             state.items.push({
-                id:item.id,
-                title:item.title,
+                id: item.id,
+                title: item.title,
                 price: item.price,
                 src: item.src,
                 num: 1
             })
         }
     },
-    del (state,id) {
-        state.items.forEach((item, index,arr) => {
+    del (state, id) {
+        state.items.forEach((item, index, arr) => {
             if (item.id === id) {
-                arr.splice(insex,1)
+                arr.splice(index, 1)
             }
         })
     }
 }
 
-const getters ={
+const getters = {
     totalPrice: (state) => {
         return state.items.reduce((total,item) => {
             return total + item.price * item.num
-        },0).toFixed(2)
+        }, 0).toFixed(2)
     }
+}
+
+export default {
+    namespaced: true,
+    state,
+    getters,
+    actions,
+    mutations
 }
